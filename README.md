@@ -25,7 +25,6 @@
 - 🎨 Scoped styles
 - 🧩 Slots
 - ⚡ Simple compilation to HTML
-- 🧠 Minimal syntax, no framework lock-in
 
 This extension provides **language support and a build command** for `.glyph` files inside VS Code.
 
