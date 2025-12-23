@@ -1,0 +1,77 @@
+{
+  "name": "glyph-lang",
+  "displayName": "Glyph Language Support",
+  "description": "Glyph is a modern HTML-first language with components, scoped styles, and a clean build pipeline.",
+  "version": "0.1.0",
+  "publisher": "knot",
+  "icon": "icon.png",
+
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+
+  "categories": [
+    "Programming Languages"
+  ],
+
+  "keywords": [
+    "glyph",
+    "html",
+    "compiler",
+    "language",
+    "web",
+    "components"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knotorganization/glyph-vscode"
+  },
+
+  "homepage": "https://github.com/knotorganization/glyph-vscode",
+  "bugs": {
+    "url": "https://github.com/knotorganization/glyph-vscode/issues"
+  },
+
+  "activationEvents": [
+    "onLanguage:glyph",
+    "onCommand:glyph.build"
+  ],
+
+  "main": "./out/extension.js",
+
+  "contributes": {
+    "languages": [
+      {
+        "id": "glyph",
+        "extensions": [".glyph"],
+        "aliases": ["Glyph"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "glyph",
+        "scopeName": "source.glyph",
+        "path": "./syntaxes/glyph.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "glyph.build",
+        "title": "Glyph: Build Project"
+      }
+    ]
+  },
+
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "vsce package"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0"
+  }
+}

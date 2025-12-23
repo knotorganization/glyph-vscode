@@ -1,0 +1,34 @@
+{
+  "scopeName": "source.glyph",
+  "patterns": [
+    {
+      "name": "entity.name.tag.glyph",
+      "match": "</?glyph>"
+    },
+    {
+      "name": "entity.name.tag.glyph",
+      "match": "</?[a-zA-Z][a-zA-Z0-9\\-]*>"
+    },
+    {
+      "name": "string.quoted.double.glyph",
+      "match": "\"[^\"]*\""
+    },
+    {
+      "name": "comment.block.glyph",
+      "begin": "<!--",
+      "end": "-->"
+    },
+    {
+      "name": "support.type.component.glyph",
+      "match": "<component\\b[^>]*>"
+    },
+    {
+      "name": "support.constant.meta.glyph",
+      "match": "<meta\\b[^>]*\\/>"
+    },
+    {
+      "name": "keyword.control.style.glyph",
+      "match": "<style\\b[^>]*>|</style>"
+    }
+  ]
+}
