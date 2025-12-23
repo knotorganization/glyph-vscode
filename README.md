@@ -61,27 +61,99 @@ This extension provides **language support and a build command** for `.glyph` fi
 ### Create a Glyph file
 
 ```glyph
-component Button(props) {
-  <button class="btn {props.variant}">
-    {props.label}
-  </button>
+<glyph>
+  <meta title="Glyph Showcase" lang="en" />
 
   <style scoped>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #0d0d0d;
+      color: #eaeaea;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+    }
+
+    p {
+      opacity: 0.85;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
     .btn {
       padding: 10px 16px;
       border-radius: 8px;
       border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background: #4caf50;
+      color: #000;
+    }
+
+    .btn.secondary {
+      background: #444;
+      color: #fff;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 14px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    }
+
+    .badge {
+      background: #2196f3;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
       font-weight: bold;
-    }
-
-    .primary {
-      background: #6f5cff;
-      color: white;
-    }
-
-    .secondary {
-      background: #eee;
-      color: #333;
+      display: inline-block;
+      margin-bottom: 6px;
     }
   </style>
-}
+
+  <!-- BUTTON COMPONENT -->
+  <component name="Button" props="label variant">
+    <button class="btn {variant}">
+      {label}
+    </button>
+  </component>
+
+  <!-- CARD COMPONENT -->
+  <component name="Card">
+    <div class="card">
+      <slot />
+    </div>
+  </component>
+
+  <h1>Hello world!</h1>
+  <p>Hey! I'm using Glyph.</p>
+
+  <Card>
+    <div class="badge">I'm using Glyph!</div>
+    <p>This card uses:</p>
+    <ul>
+      <li>Scoped styles</li>
+      <li>Custom components</li>
+      <li>Slots</li>
+      <li>Class variants</li>
+    </ul>
+
+    <div class="row">
+      <Button label="Confirm" variant="primary" />
+      <Button label="Cancel" variant="secondary" />
+    </div>
+  </Card>
+
+</glyph>
